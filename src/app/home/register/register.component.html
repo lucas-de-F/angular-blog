@@ -1,1 +1,42 @@
-<p>register works!</p>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput placeholder="******" type="password" [formControl]="password" required>
+    <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error> -->
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>confirm your password</mat-label>
+    <input matInput placeholder="******" type="password" [formControl]="confirmPassword" required>
+    <!-- <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessage('confirmPassword')}}</mat-error> -->
+  </mat-form-field>
+  <div>
+    <button
+      mat-button
+      color="primary"
+      *ngIf="!password.errors && !email.errors && confirmPassword.value === password.value"
+      (click)="redirect()"
+    >
+      CADASTRAR
+    </button>
+  </div>
+  <div *ngIf="password.errors || email.errors">
+    DADOS INVÀLIDOS
+  </div>
+
+  <div>
+    já possui conta???
+    <button
+    color="primary"
+    (click)="login()"
+    >
+    Login
+  </button>
+  </div>
+</div>
