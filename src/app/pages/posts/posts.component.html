@@ -1,1 +1,11 @@
-<p>posts works!</p>
+<p>POSTS</p>
+<div *ngFor="let item of posts">
+  <div style='margin: 20px'>
+    TITLE: {{ item.title }} <br />
+    CONTENT: {{ item.content }} <br />
+    CATEGORIES: <div *ngFor="let categorie of item.categories">
+      {{ categorie.name }}
+    </div>
+  </div>
+</div>
+
