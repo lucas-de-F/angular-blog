@@ -1,1 +1,20 @@
-<p>login works!</p>
+<div class="example-container">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" [formControl]="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input matInput placeholder="******" type="password" [formControl]="password" required>
+    <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error>
+  </mat-form-field>
+
+  <div>
+    <button mat-button color="primary" *ngIf="!password.errors && !email.errors" (click)="redirect()">ENTRAR</button>
+  </div>
+  <div *ngIf="password.errors || email.errors">
+    EMAIL OU SENHA INCORRETOS
+  </div>
+</div>
