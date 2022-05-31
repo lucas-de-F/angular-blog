@@ -30,4 +30,8 @@ export class LoginComponent implements OnInit {
   redirect() {
     this.router.navigateByUrl('/posts')
   }
+
+  register() {
+    this.router.navigateByUrl('/register')
+  }
 }
