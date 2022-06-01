@@ -13,24 +13,20 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UsersComponent } from './pages/users/users.component';
+import { PagesModule } from './pages/pages.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    PostsComponent,
-    UsersComponent
   ],
   imports: [
+    PagesModule,
+    HomeModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
-    MatFormFieldModule,
-    FormsModule,
     ReactiveFormsModule,
-    MatInputModule,
     HttpClientModule
   ],
   providers: [],

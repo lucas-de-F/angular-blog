@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
     this.getUser()
   }
+
   getUser() {
       this.userService.getUser().subscribe(
         (res: any) => this.users = res,
@@ -24,5 +25,5 @@ export class UsersComponent implements OnInit {
 
   redirect() {
     this.router.navigateByUrl('/posts')
-}
+  }
 }
