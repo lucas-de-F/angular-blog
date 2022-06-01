@@ -24,11 +24,9 @@ export class RegisterComponent implements OnInit {
   }
 
   getErrorMessage(str: string) {
-    console.log(`${str} INVÁLIDO`)
   }
 
   getSuccessMessage(str: string) {
-    console.log(`${str} VÁLIDO`)
   }
 
   redirect() {

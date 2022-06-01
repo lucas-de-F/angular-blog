@@ -25,11 +25,6 @@ export class PostsComponent implements OnInit {
       },
       (err: any) => console.log(err)
     )
-    this.postServices
-    .getPosts()
-    .subscribe(
-      (res: any) => console.log(res)
-    )
   }
 
   redirect() {
