@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 
-
-
 @NgModule({
   declarations: [
     PostsComponent,
