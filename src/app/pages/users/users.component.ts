@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UserService } from 'src/app/services/user/user.service';
 export class UsersComponent implements OnInit {
   users: any;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.getUser()
@@ -20,4 +21,8 @@ export class UsersComponent implements OnInit {
         (err: any) => console.log(err)
       );
   }
+
+  redirect() {
+    this.router.navigateByUrl('/posts')
+}
 }

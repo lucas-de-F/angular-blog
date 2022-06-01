@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post/post.service';
 
@@ -9,7 +10,7 @@ import { PostService } from 'src/app/services/post/post.service';
 export class PostsComponent implements OnInit {
   posts: any;
   categories: any;
-  constructor(private postServices: PostService) { }
+  constructor(private postServices: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPosts()
@@ -29,5 +30,9 @@ export class PostsComponent implements OnInit {
     .subscribe(
       (res: any) => console.log(res)
     )
+  }
+
+  redirect() {
+    this.router.navigateByUrl('/users')
   }
 }
