@@ -46,6 +46,7 @@ export class LoginComponent implements OnInit {
     try {
       return console.log(this.jwtItils.decodeToken(this.getToken()));
     } catch (Error) {
+      this.router.navigateByUrl('/login')
       return null;
     }
   }
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
       (res: any) => {
         localStorage.setItem('token', res.token)
         this.decodePayloadJWT()
+        this.redirect()
       },
       (err: any) => {console.log(err)}
     );
