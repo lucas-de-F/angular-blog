@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user/user.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 interface User {
   email: string;
@@ -22,19 +23,18 @@ export class LoginComponent implements OnInit {
   password = new FormControl('', [
     Validators.minLength(6)
   ]);
-  private jwtItils = new JwtHelperService()
-  constructor(private router: Router, private userService: UserService) { }
-
-  ngOnInit(): void {
-  }
-
-  getErrorMessage(str: string) {
-  }
-  getSuccessMessage(str: string) {
-  }
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private authService: AuthService
+  ) { }
 
   redirect() {
     this.router.navigateByUrl('/posts')
+  }
+
+  ngOnInit(): void {
+    this.authService.loggedIn() && this.redirect()
   }
 
   register() {
@@ -44,20 +44,11 @@ export class LoginComponent implements OnInit {
     return localStorage.getItem('token') as string;
   }
 
-  public decodePayloadJWT(): any {
-    try {
-      return console.log(this.jwtItils.decodeToken(this.getToken()));
-    } catch (Error) {
-      this.router.navigateByUrl('/login')
-      return null;
-    }
-  }
   login(): any {
     const data: User = { email: this.email.value, password: this.password.value }
     this.userService.UserLogin(data).subscribe(
       (res: any) => {
         localStorage.setItem('token', res.token)
-        this.decodePayloadJWT()
         this.redirect()
       },
       (err: any) => {
