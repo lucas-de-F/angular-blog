@@ -1,13 +1,14 @@
 <div class="alignComponents">
   <div>
 
-    <div>
+    <div class="alignComponents">
       <div>
-        <mat-form-field appearance="fill">
-          <mat-label>Enter your email</mat-label>
-          <input matInput placeholder="pat@example.com" [formControl]="email" required>
-        </mat-form-field>
-      </div>
+        <div>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your email</mat-label>
+            <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          </mat-form-field>
+        </div>
       <div>
         <mat-form-field appearance="fill">
           <mat-label>Enter your password</mat-label>
@@ -15,6 +16,10 @@
         </mat-form-field>
       </div>
     </div>
+
+  </div>
+  <p *ngIf="error" class="error-message">{{error}}</p>
+
 
     <div class="alignComponents">
       <button
@@ -40,10 +45,6 @@
       </button>
     </div>
 
-    <div *ngIf="password.errors || email.errors">
-      EMAIL OU SENHA INCORRETOS
-    </div>
-
     <div>
       Não possui conta???
     </div>
@@ -55,5 +56,6 @@
       >
       Registre
     </button>
-  </div>
+
 </div>
+

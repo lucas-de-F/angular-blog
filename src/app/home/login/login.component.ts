@@ -14,6 +14,8 @@ interface User {
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  error: string = ''
+
   email = new FormControl('lewishamilton@gmail.com', [
     Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")
   ]);
@@ -58,7 +60,9 @@ export class LoginComponent implements OnInit {
         this.decodePayloadJWT()
         this.redirect()
       },
-      (err: any) => {console.log(err)}
+      (err: any) => {
+        this.error = err.error.message
+      }
     );
   }
 }
