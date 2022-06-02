@@ -1,43 +1,61 @@
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your email</mat-label>
-    <input matInput placeholder="pat@example.com" [formControl]="email" required>
-    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage('email')}}</mat-error> -->
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your password</mat-label>
-    <input matInput placeholder="******" type="password" [formControl]="password" required>
-    <!-- <mat-error *ngIf="password.invalid">{{getErrorMessage('password')}}</mat-error> -->
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>confirm your password</mat-label>
-    <input matInput placeholder="******" type="password" [formControl]="confirmPassword" required>
-    <!-- <mat-error *ngIf="confirmPassword.invalid">{{getErrorMessage('confirmPassword')}}</mat-error> -->
-  </mat-form-field>
+<div class="alignComponents">
   <div>
-    <button
-      mat-flat-button color="primary"
-      color="primary"
-      *ngIf="!password.errors && !email.errors && confirmPassword.value === password.value"
-      (click)="redirect()"
-    >
-      CADASTRAR
-    </button>
-  </div>
-  <div *ngIf="password.errors || email.errors">
-    DADOS INVÀLIDOS
-  </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter your password</mat-label>
+        <input matInput placeholder="******" type="password" [formControl]="password" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>confirm your password</mat-label>
+        <input matInput placeholder="******" type="password" [formControl]="confirmPassword" required>
+      </mat-form-field>
+    </div>
 
+    <div class="alignComponents">
+      <button
+        class="btn"
+        mat-flat-button color="primary"
+        color="primary"
+        *ngIf="!password.errors && !email.errors && confirmPassword.value === password.value"
+        (click)="redirect()"
+      >
+        CADASTRAR
+      </button>
+    </div>
+    <div
+      class="alignComponents"
+      *ngIf="password.errors || email.errors || confirmPassword.value !== password.value"
+    >
+      <button
+        class="btn"
+        mat-flat-button color="primary"
+        color="primary"
+        disabled="true"
+        (click)="redirect()"
+      >
+        CADASTRAR
+      </button>
+    </div>
+    <div *ngIf="password.errors || email.errors || confirmPassword.value !== password.value">
+      DADOS INVÀLIDOS
+    </div>
   <div>
     já possui conta???
-    <button
-    mat-flat-button
-    color="accent"
-    (click)="login()"
-    >
-    Login
-  </button>
+  </div>
+      <button
+      mat-flat-button
+      color="accent"
+      (click)="login()"
+      >
+      Login
+    </button>
   </div>
 </div>
