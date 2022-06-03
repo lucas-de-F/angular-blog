@@ -1,1 +1,8 @@
-<p>user works!</p>
+<div id="container">
+  <p>
+    {{ user?.displayName }}
+    <br />
+    {{ user?.email }}
+  </p>
+</div>
+<button (click)="redirect()">Usuários</button>

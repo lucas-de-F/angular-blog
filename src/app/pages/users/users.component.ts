@@ -23,6 +23,10 @@ export class UsersComponent implements OnInit {
       );
   }
 
+  redirectToUser(id: string): void {
+    this.router.navigateByUrl(`/users/${id}`)
+  }
+
   redirect() {
     this.router.navigateByUrl('/posts')
   }

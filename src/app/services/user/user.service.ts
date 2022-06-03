@@ -13,6 +13,10 @@ export class UserService {
     return this.http.get('http://localhost:3000/user');
   }
 
+  getUserById(id: string) {
+    return this.http.get(`http://localhost:3000/user/${id}`);
+  }
+
   UserLogin({ email, password }: { email: string, password: string }): Observable<any> {
     return this.http.post('http://localhost:3000/login', { email, password });
   }
