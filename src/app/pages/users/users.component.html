@@ -1,5 +1,8 @@
 <div id="container">
   USERS
-  <p *ngFor="let item of users">{{ item.displayName }} {{ item.email }}</p>
+  <p *ngFor="let item of users">
+    {{ item.displayName }} {{ item.email }}
+    <button (click)="redirectToUser(item.id)">Ir Para Usuário</button>
+  </p>
 </div>
 <button (click)="redirect()">Postagens</button>
