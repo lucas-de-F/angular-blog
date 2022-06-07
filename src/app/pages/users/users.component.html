@@ -2,6 +2,7 @@
   USERS
   <p *ngFor="let item of users">
     {{ item.displayName }} {{ item.email }}
+    <img src="{{item.image}}" class=perfil/>
     <button (click)="redirectToUser(item.id)">Ir Para Usuário</button>
   </p>
 </div>
