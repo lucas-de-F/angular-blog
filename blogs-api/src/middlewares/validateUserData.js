@@ -23,7 +23,6 @@ const validatePassword = ({ password }) => {
 
 const validateUserData = (req, res, next) => {
     const payload = req.body;
-
     validateEmail(payload);
     validateName(payload);
     validatePassword(payload);
