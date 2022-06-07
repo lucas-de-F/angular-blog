@@ -5,6 +5,7 @@ import { RegisterComponent } from './home/register/register.component';
 import { PostsComponent } from './pages/posts/posts.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsersComponent } from './pages/users/users.component';
+import { RouteGuard } from './route.guard';
 
 const routes: Routes = [
   {
@@ -13,19 +14,22 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'posts',
-    component: PostsComponent
+    component: PostsComponent,
+    canActivate: [RouteGuard]
   },
   {
     path: 'users',
-    component: UsersComponent
+    component: UsersComponent,
+    canActivate: [RouteGuard]
   },
   {
     path: 'users/:id',
-    component: UserComponent
+    component: UserComponent,
+    canActivate: [RouteGuard]
   },
   {
     path: '',
@@ -36,6 +40,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [RouteGuard]
 })
 export class AppRoutingModule { }
